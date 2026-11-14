@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Application architecture
+- Keep mission validation, Mars geodesics, A* network routing and resource calculations in the shared mission module so the UI and assistant use identical results.
+- Load OpenLayers only through a lazy browser-rendered component; parse NASA WMTS capabilities for degree-based Mars projection, matrix geometry and layer coverage.
+- Persist the requested local draft only in browser storage; do not add accounts or cloud mission storage without a user request.
+- Call Lovable AI Gateway exclusively inside server handlers and recalculate mission metrics there; return explicitly labeled rule-based advice on final AI failure.
